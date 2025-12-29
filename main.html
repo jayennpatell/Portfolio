@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=100%, initial-scale=1.0" />
+    <title>Jayen Patel — Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Jayen Patel — CS Co-op student. Projects, skills, and contact."
+    />
+
+    <style>
+      :root {
+        /* PALETTE */
+        --beige: #fff7e6;
+        --pine: #00311f;
+
+        /* UI */
+        --bg: var(--beige);
+        --text: var(--pine);
+        --muted: rgba(0, 49, 31, 0.72);
+
+        --card: rgba(255, 255, 255, 0.45);
+        --card2: rgba(255, 247, 230, 0.72);
+        --border: rgba(0, 49, 31, 0.16);
+        --shadow: 0 14px 40px rgba(0, 49, 31, 0.12);
+
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Arial;
+        color: var(--text);
+        background: radial-gradient(
+            1100px 650px at 18% 12%,
+            rgba(0, 49, 31, 0.1),
+            transparent 60%
+          ),
+          radial-gradient(
+            900px 700px at 85% 20%,
+            rgba(0, 49, 31, 0.08),
+            transparent 62%
+          ),
+          var(--bg);
+        line-height: 1.6;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 22px 18px 22px;
+      }
+
+      /* NAV */
+      header {
+        padding: 8px 0;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(255, 247, 230, 0.78);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 14px 0;
+      }
+      .brand {
+        font-size: 25px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      nav {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        font-size: 16px;
+        color: var(--muted);
+        padding: 5px 10px;
+        border-radius: 999px;
+      }
+      nav a:hover {
+        background: rgba(0, 49, 31, 0.06);
+        color: var(--text);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.3);
+        transition: transform 0.15s ease, box-shadow 0.15s ease,
+          background 0.15s ease;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow);
+        background: rgba(255, 255, 255, 0.42);
+      }
+      .btn.primary {
+        background: var(--pine);
+        color: var(--beige);
+        border: 1px solid rgba(0, 49, 31, 0.22);
+        font-weight: 500;
+      }
+      .btn.primary:hover {
+        background: rgba(0, 49, 31, 0.94);
+      }
+
+      /* SECTIONS */
+      section {
+        scroll-margin-top: 90px;
+      }
+      .section {
+        margin-top: 22px;
+        padding-top: 10px;
+      }
+
+      /* HERO */
+      .hero {
+        padding: 54px 0 22px;
+        display: grid;
+        gap: 18px;
+      }
+      .kicker {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      h1 {
+        margin: 0;
+        font-size: 52px;
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        max-width: 900px;
+      }
+      .sub {
+        margin: 0;
+        max-width: 760px;
+        color: var(--muted);
+        font-size: 18px;
+      }
+      .cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+
+      /* CARDS + GRID */
+      .grid2 {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 16px;
+        margin-top: 18px;
+      }
+      @media (max-width: 920px) {
+        h1 {
+          font-size: 40px;
+        }
+        .grid2 {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: 0 10px 28px rgba(0, 49, 31, 0.08);
+      }
+      .card h2 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+      }
+      .muted {
+        color: var(--muted);
+      }
+
+      .pills {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .pill {
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: rgba(0, 49, 31, 0.08);
+        border: 1px solid rgba(0, 49, 31, 0.12);
+        font-weight: 600;
+      }
+
+      /* PROJECTS */
+      .projects {
+        margin-top: 18px;
+        display: grid;
+        gap: 14px;
+      }
+      .proj {
+        border-radius: var(--radius);
+        border: 1px solid var(--border);
+        background: var(--card2);
+        padding: 16px;
+      }
+      .projTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .projTop strong {
+        font-size: 16px;
+      }
+      .links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .links a {
+        font-size: 13px;
+        padding: 7px 10px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.3);
+        transition: transform 0.15s ease, background 0.15s ease,
+          color 0.15s ease;
+      }
+      .links a:hover {
+        transform: translateY(-1px);
+        background: var(--pine);
+        color: var(--beige);
+      }
+
+      .divider {
+        height: 1px;
+        background: var(--border);
+        margin: 14px 0;
+      }
+
+      footer {
+        margin-top: 40px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="nav">
+          <div class="brand">
+            <span>Jayen Patel</span>
+          </div>
+
+          <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <a
+            class="btn"
+            href="JayenPatelResume.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Resume ↗
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <!-- 1) LANDING -->
+      <section class="hero" id="top">
+        <div class="kicker">
+          Computer Science Co-op Student • University of Guelph
+        </div>
+
+        <h1>Building reliable and 
+            intelligent systems.</h1>
+
+
+        <p class="sub">
+            I’m currently focused on bringing data, models, and infrastructure together to build systems that scale well and hold up in the real world.
+ 
+        </p>
+
+      </section>
+
+      <!-- 2) ABOUT + SKILLS -->
+      <section class="section" id="about">
+        <div class="grid2">
+          <!-- ABOUT CARD -->
+          <div class="card">
+            <h2>About Me</h2>
+            <p class="muted">
+              I got into technology because it lets me build things from nothing
+              and satisfy my curiosity — starting with wondering how my favorite
+              game, Minecraft, was built. Since then, I’ve loved solving
+              problems (and sometimes creating a few along the way),
+              experimenting with new ideas, and turning them into real things
+              people can actually use. Outside of code, I’m usually playing
+              badminton, running tracks, cycling, or lifting weights. I believe
+              in forward momentum or I like to say
+              <b>“zindagi me raftaar honi chahiye.”</b>
+            </p>
+          </div>
+
+          <!-- SKILLS CARD (THIS is what was missing) -->
+          <div class="card">
+            <h2>Skills</h2>
+
+            <div class="muted">Languages</div>
+            <div class="pills" style="margin-top: 8px">
+              <span class="pill">Python</span
+              ><span class="pill">JavaScript</span
+              ><span class="pill">Java</span> <span class="pill">C/C++</span
+              ><span class="pill">HTML/CSS</span> <span class="pill">R</span
+              ><span class="pill">Assembly</span>
+            </div>
+
+            <div style="height: 12px"></div>
+
+            <div class="muted">Frameworks / Libraries</div>
+            <div class="pills" style="margin-top: 8px">
+              <span class="pill">Flask</span
+              ><span class="pill">React (beginner)</span>
+              <span class="pill">JavaFX (beginner)</span>
+            </div>
+
+            <div style="height: 12px"></div>
+
+            <div class="muted">Tools</div>
+            <div class="pills" style="margin-top: 8px">
+              <span class="pill">Git</span><span class="pill">GitHub</span
+              ><span class="pill">Docker</span>
+              <span class="pill">Linux/Unix</span>
+              <span class="pill">GCC/Clang</span><span class="pill">Excel</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3) PROJECTS (from resume) -->
+      <section class="section" id="projects">
+        <div class="card">
+          <h2>Projects</h2>
+          <p class="muted" style="margin-top: -6px">
+            A few projects I’m most proud of. (More on GitHub.)
+          </p>
+
+          <div class="projects">
+            <!-- WRAPIFY -->
+            <div class="proj">
+              <div class="projTop">
+                <strong>Wrapify</strong>
+                <div class="links">
+                  <a href="YOUR_WRAPIFY_DEMO" target="_blank" rel="noreferrer"
+                    >Live Demo</a
+                  >
+                  <a href="https://github.com/jayennpatell/Wrapify" target="_blank" rel="noreferrer"
+                    >Code</a
+                  >
+                </div>
+              </div>
+              <div class="muted">
+                React • TypeScript • Vite • Tailwind • Spotify Web API • OAuth2
+                (PKCE)
+              </div>
+              <p>
+                A Spotify “Wrapped” style dashboard that turns your listening
+                history into insights you can actually explore. I built the full
+                OAuth2 PKCE login flow, then designed a responsive UI that
+                surfaces your top artists/tracks plus deeper audio details. The
+                focus here was building something fast, clean, and stable — not
+                just a demo.
+              </p>
+              <div class="pills">
+                <span class="pill">OAuth2 PKCE</span>
+                <span class="pill">Data Visualization</span>
+                <span class="pill">Responsive UI</span>
+              </div>
+            </div>
+
+            <!-- WEATHER APP -->
+            <div class="proj">
+              <div class="projTop">
+                <strong>Weather App</strong>
+                <div class="links">
+                  <a href="YOUR_WEATHER_DEMO" target="_blank" rel="noreferrer"
+                    >Live Demo</a
+                  >
+                  <a href="https://github.com/jayennpatell/WeatherApp" target="_blank" rel="noreferrer"
+                    >Code</a
+                  >
+                </div>
+              </div>
+              <div class="muted">Java • Java Swing • External Weather API</div>
+              <p>
+                A desktop weather app that feels simple, but is built to handle
+                real-world messiness: invalid cities, slow connections, and
+                unpredictable API responses. I separated the data-fetching logic
+                from the UI, added friendly error states, and made updates
+                event-driven so the interface stays responsive.
+              </p>
+              <div class="pills">
+                <span class="pill">API Integration</span>
+                <span class="pill">Event-driven UI</span>
+                <span class="pill">Error Handling</span>
+              </div>
+            </div>
+
+            <!-- SNAKE GAME -->
+        <div class="proj">
+            <div class="projTop">
+            <strong>Terminal Snake</strong>
+            <div class="links">
+            <a href="YOUR_SNAKE_DEMO" target="_blank" rel="noreferrer">Live Demo</a>
+            <a href="https://github.com/jayennpatell/Snakes-And-Apples" target="_blank" rel="noreferrer">Code</a>
+            </div>
+            </div>
+            <div class="muted">C++ • Real-time Input • Game Loop</div>
+            <p>
+            A lightweight terminal-based Snake game built to practice real-time logic: consistent updates, low-latency input,
+            and clean state management. Implemented movement, food spawning, growth, scoring, and collision rules —
+            then optimized redraws so gameplay stays smooth instead of flickery.
+            </p>
+            <div class="pills">
+            <span class="pill">Game Loop</span>
+            <span class="pill">State Management</span>
+        </div>
+        </div>
+        </div>
+          </div>
+
+          <!-- 4) LINK TO GITHUB FOR ALL PROJECTS -->
+          <div class="divider"></div>
+          <div
+            style="
+              display: flex;
+              gap: 12px;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: space-between;
+            "
+          >
+            <div class="muted">Want to see everything I’ve built?</div>
+            <a
+              class="btn primary"
+              href="https://github.com/jayennpatell?tab=repositories"
+              target="_blank"
+              rel="noreferrer"
+            >
+              View All Projects on GitHub ↗
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5) CONTACT -->
+      <section class="section" id="contact">
+        <div class="card">
+          <h2>Contact</h2>
+          <p class="muted">
+            Email:
+            <a
+              href="mailto:jayen@uoguelph.ca"
+              style="text-decoration: underline"
+              >jayen@uoguelph.ca</a
+            ><br />
+            Location: Ontario, Canada
+          </p>
+
+          <div class="cta">
+            <a class="btn primary" href="mailto:jayen@uoguelph.ca">Email Me</a>
+            <a
+              class="btn"
+              href="https://www.linkedin.com/in/jayennpatell"
+              target="_blank"
+              rel="noreferrer"
+              >LinkedIn ↗</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        © <span id="year"></span> Jayen Patel • Built with HTML/CSS • Deployed
+        on GitHub Pages
+      </footer>
+    </main>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
